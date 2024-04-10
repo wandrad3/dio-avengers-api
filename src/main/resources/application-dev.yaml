@@ -1,3 +1,20 @@
+#spring:
+#  profiles:
+#    active: dev
+#  jackson:
+#    serialization:
+#      indent-output: true
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:postgresql://localhost:25433/${DB_NAME}
+#    username: ${DB_USER}
+#    password: ${DB_PASSWORD}
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+
+
+
 spring:
   profiles:
     active: dev
@@ -6,9 +23,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:25433/${DB_NAME}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:h2:mem:testdb  # URL para o banco de dados H2 em memória
+    username: sa             # Usuário padrão do H2
+    password:                # Senha padrão do H2 (vazio por padrão)
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect  # Dialeto H2
     show-sql: true
